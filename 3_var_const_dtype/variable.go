@@ -3,6 +3,11 @@ package main
 import "fmt"
 
 func main() {
-	var myName string = "Rickyslash"
-	fmt.Print("Hello, ", myName, "!\n")
+	var name string = "Ricky"
+	const like string = "Fishes"
+
+	name = "Rickyslash"
+
+	fmt.Print("Hello, ", name, "!")
+	fmt.Print("I really like ", like)
 }
