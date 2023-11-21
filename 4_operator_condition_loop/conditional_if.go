@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func conditionalMethod() {
+func ifConditionalMethod() {
 	var grade float32 = 3.6
 	if grade == 10 {
 		fmt.Println("Perfection, teachers must be very proud.")
