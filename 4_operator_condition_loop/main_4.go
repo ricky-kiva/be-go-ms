@@ -5,4 +5,5 @@ func main() {
 	operatorsMethod()
 	ifConditionalMethod()
 	switchConditionalMethod()
+	forLoopMethod()
 }
