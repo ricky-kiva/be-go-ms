@@ -5,4 +5,5 @@ func main() {
 	typeInferenceMethod()
 	arrayMethod()
 	slicesMethod()
+	mapsMethod()
 }
