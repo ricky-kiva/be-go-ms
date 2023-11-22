@@ -6,4 +6,5 @@ func main() {
 	arrayMethod()
 	slicesMethod()
 	mapsMethod()
+	structMethod()
 }
