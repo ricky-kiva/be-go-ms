@@ -7,4 +7,5 @@ func main() {
 	slicesMethod()
 	mapsMethod()
 	structMethod()
+	makeFunctionMethod()
 }
