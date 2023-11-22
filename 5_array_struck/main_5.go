@@ -4,4 +4,5 @@ func main() {
 	typeCastMethod()
 	typeInferenceMethod()
 	arrayMethod()
+	slicesMethod()
 }
