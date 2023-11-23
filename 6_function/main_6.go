@@ -1,6 +1,7 @@
 package main
 
 import (
+	mathx "6_function/lib"
 	"fmt"
 	"strings"
 )
@@ -27,6 +28,7 @@ func main() {
 	var min, max = getMinMax(numbersForMinMax)
 	fmt.Printf("min: %d, max: %d\n", min, max)
 
+	// callback function
 	var filterOString = func(input string) bool {
 		input = strings.ToLower(input)
 		return strings.Contains(input, "o")
@@ -35,4 +37,9 @@ func main() {
 	var stringsToFilter = []string{"Yogyakarta", "Okinawa", "Jakarta", "Tokyo", "San Francisco", "Vienna", "Munich", "London"}
 	var oStringArray = filterCallback(stringsToFilter, filterOString)
 	fmt.Println(oStringArray)
+
+	// golang package
+	var numbersToTotal = []float64{10, 35, 55, 100}
+	total := mathx.Total(numbersToTotal)
+	fmt.Printf("Total: %.0f\n", total)
 }
