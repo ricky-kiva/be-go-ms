@@ -7,7 +7,7 @@ import (
 
 func validateFilledString(input string) (bool, error) {
 	if strings.TrimSpace(input) == "" {
-		return false, errors.New("String cannot be blank")
+		return false, errors.New("string cannot be blank")
 	}
 	return true, nil
 }
