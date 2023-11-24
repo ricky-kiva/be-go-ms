@@ -1,3 +1,6 @@
 go 1.21.4
 
-use ./6_function
+use (
+	./6_function
+	./7_defer_panic_error
+)
