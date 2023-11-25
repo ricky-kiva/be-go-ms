@@ -4,4 +4,5 @@ use (
 	./6_function
 	./7_defer_panic_error
 	./8_json_assert_interface
+	./9_context_goroutine_channel
 )
