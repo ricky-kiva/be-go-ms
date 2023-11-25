@@ -1,5 +1,10 @@
 package main
 
+type Character struct {
+	Name  string `json:"Username"`
+	Level int
+}
+
 func main() {
 	var jsonString = `{
 		"Username": "Rickyslash",

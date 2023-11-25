@@ -5,11 +5,6 @@ import (
 	"fmt"
 )
 
-type Character struct {
-	Name  string `json:"Username"`
-	Level int
-}
-
 func jsonToStruct(jsonString string) {
 	var jsonData = []byte(jsonString)
 
