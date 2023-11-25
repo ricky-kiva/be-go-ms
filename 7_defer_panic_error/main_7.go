@@ -2,7 +2,11 @@ package main
 
 import "fmt"
 
+// run by `go run .`
 func main() {
+	// recover
+	defer recoverMethod()
+
 	deferMethod()
 	errorMethod()
 
@@ -16,6 +20,7 @@ func main() {
 		fmt.Println(err.Error())
 	}
 
+	// comment these to simulate non-`recover`-y mode
 	panicMethod()
 	exitMethod()
 }
