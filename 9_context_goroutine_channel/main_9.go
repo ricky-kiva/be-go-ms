@@ -12,4 +12,5 @@ func main() {
 	channelMethod()
 	waitGroupMethod()
 	contextPassingMethod()
+	contextCancelMethod()
 }
