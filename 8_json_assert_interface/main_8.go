@@ -15,4 +15,7 @@ func main() {
 	jsonToInterface(jsonString)
 	jsonToObjectArray()
 	objectArrayToJson()
+
+	// interface
+	calculateShapes()
 }
