@@ -9,4 +9,5 @@ to get everything done. */
 // run by `go run .`
 func main() {
 	goroutineMethod()
+	channelMethod()
 }
