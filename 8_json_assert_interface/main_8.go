@@ -14,4 +14,5 @@ func main() {
 	jsonToStruct(jsonString)
 	jsonToInterface(jsonString)
 	jsonToObjectArray()
+	objectArrayToJson()
 }
