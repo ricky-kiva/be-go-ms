@@ -10,12 +10,7 @@ type Character struct {
 	Level int
 }
 
-func jsonToStruct() {
-	var jsonString = `{
-		"Username": "Rickyslash",
-		"Level": 8
-	}`
-
+func jsonToStruct(jsonString string) {
 	var jsonData = []byte(jsonString)
 
 	var data Character
