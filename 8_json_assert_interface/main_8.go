@@ -7,4 +7,5 @@ func main() {
 	}`
 
 	jsonToStruct(jsonString)
+	jsonToInterface(jsonString)
 }
