@@ -10,4 +10,5 @@ to get everything done. */
 func main() {
 	goroutineMethod()
 	channelMethod()
+	waitGroupMethod()
 }
