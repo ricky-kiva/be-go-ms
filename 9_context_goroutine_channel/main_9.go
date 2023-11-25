@@ -11,5 +11,5 @@ func main() {
 	goroutineMethod()
 	channelMethod()
 	waitGroupMethod()
-	contextMethod()
+	contextPassingMethod()
 }

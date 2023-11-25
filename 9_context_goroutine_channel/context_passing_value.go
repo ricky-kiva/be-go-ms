@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-func contextMethod() {
+func contextPassingMethod() {
 	// context transfers values that extends from the parent context
 	ctxParent := context.Background()
 	ctx1 := context.WithValue(ctxParent, "key1", "King")
