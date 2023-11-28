@@ -2,6 +2,7 @@ go 1.21.4
 
 use (
 	./10_buffer_select_mutex
+	./11_gin
 	./6_function
 	./7_defer_panic_error
 	./8_json_assert_interface
