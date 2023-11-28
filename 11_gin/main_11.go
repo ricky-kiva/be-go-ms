@@ -1,7 +1,13 @@
 package main
 
+import "github.com/gin-gonic/gin"
+
 func main() {
-	// intro gin by making "/ping" endPoint
-	r := setRouterForPing()
-	r.Run(":8080") // run the endPoint on port `:8080`
+	// initiate Gin engine
+	r := gin.Default()
+
+	// make "/ping" endPoint
+	setRouterForPing(r)
+
+	r.Run(":8080") // run router on port `:8080`
 }
