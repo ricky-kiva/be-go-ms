@@ -26,5 +26,7 @@ func setupRouter() *gin.Engine {
 	r.GET("/student", func(ctx *gin.Context) { getAllHander(ctx, db) })
 	r.GET("/student/:id", func(ctx *gin.Context) { getHandler(ctx, db) })
 
+	r.PUT("/student/:id", func(ctx *gin.Context) { putHandler(ctx, db) })
+
 	return r
 }
