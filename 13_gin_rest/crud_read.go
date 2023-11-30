@@ -45,7 +45,7 @@ func rowsToStruct(rows *sql.Rows, dest interface{}) error {
 }
 
 func getAllHander(c *gin.Context, db *sql.DB) {
-	var newStudent []Student
+	var students []Student
 
 	rows, err := db.Query("SELECT * FROM students")
 	if err != nil {
@@ -56,9 +56,9 @@ func getAllHander(c *gin.Context, db *sql.DB) {
 		return
 	}
 
-	rowsToStruct(rows, &newStudent)
+	rowsToStruct(rows, &students)
 
-	if newStudent == nil {
+	if students == nil {
 		c.JSON(http.StatusNotFound, gin.H{
 			"status":  "success",
 			"message": "Data not found",
@@ -68,6 +68,39 @@ func getAllHander(c *gin.Context, db *sql.DB) {
 
 	c.JSON(http.StatusOK, gin.H{
 		"status": "success",
-		"data":   newStudent,
+		"data":   students,
+	})
+}
+
+func getHandler(c *gin.Context, db *sql.DB) {
+	var student []Student
+
+	studentId := c.Param("id")
+
+	rows, err := db.Query(
+		"SELECT * from students WHERE student_id = $1",
+		studentId,
+	)
+
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"status":  "error",
+			"message": err.Error(),
+		})
+	}
+
+	rowsToStruct(rows, &student)
+
+	if student == nil {
+		c.JSON(http.StatusNotFound, gin.H{
+			"status":  "success",
+			"message": "Data not found",
+		})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{
+		"status": "success",
+		"data":   student,
 	})
 }
