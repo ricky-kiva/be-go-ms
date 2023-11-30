@@ -1,11 +1,11 @@
 package main
 
 type Student struct {
-	Student_id      uint64 `json:"student_id" binding:"required"`
-	Student_name    string `json:"student_name" binding:"required"`
-	Student_age     uint64 `json:"student_age" binding:"required"`
-	Student_address string `json:"student_address" binding:"required"`
-	Student_phone   string `json:"student_phone" binding:"required"`
+	Id      uint64 `json:"id" binding:"required"`
+	Name    string `json:"name" binding:"required"`
+	Age     uint64 `json:"age" binding:"required"`
+	Address string `json:"address" binding:"required"`
+	Phone   string `json:"phone" binding:"required"`
 }
 
 func main() {
