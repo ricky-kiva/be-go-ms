@@ -21,9 +21,9 @@ func setupRouter() *gin.Engine {
 		log.Fatal(err)
 	}
 
-	r.POST("/student", func(ctx *gin.Context) {
-		postHandler(ctx, db)
-	})
+	r.POST("/student", func(ctx *gin.Context) { postHandler(ctx, db) })
+
+	r.GET("/student", func(ctx *gin.Context) { getAllHander(ctx, db) })
 
 	return r
 }
