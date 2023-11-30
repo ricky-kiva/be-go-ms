@@ -10,16 +10,20 @@ import (
 )
 
 func setupRouter() *gin.Engine {
+	r := gin.Default()
+
 	// setup PostgreSQL connection
 	// "db_type://username:password@ip_address/db_name?sslmode=`ssl_mode`"
-	conn := "postgressql://postgres:postgres_pw@127.0.0.1/postgres?sslmode=disable"
+	conn := "postgres://postgres:postgres_pw@127.0.0.1/postgres?sslmode=disable"
 
-	_, err := sql.Open("postgres", conn) // "postgres" is the driverName, which is PostgreSQL
+	db, err := sql.Open("postgres", conn) // "postgres" is the driverName, which is PostgreSQL
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	r := gin.Default()
+	r.POST("/student", func(ctx *gin.Context) {
+		postHandler(ctx, db)
+	})
 
 	return r
 }
