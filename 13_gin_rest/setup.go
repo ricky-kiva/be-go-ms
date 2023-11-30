@@ -28,5 +28,7 @@ func setupRouter() *gin.Engine {
 
 	r.PUT("/student/:id", func(ctx *gin.Context) { putHandler(ctx, db) })
 
+	r.DELETE("/student/:id", func(ctx *gin.Context) { delHandler(ctx, db) })
+
 	return r
 }
