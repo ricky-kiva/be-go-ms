@@ -87,6 +87,7 @@ func getHandler(c *gin.Context, db *sql.DB) {
 			"status":  "error",
 			"message": err.Error(),
 		})
+		return
 	}
 
 	rowsToStruct(rows, &student)
