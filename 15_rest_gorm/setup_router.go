@@ -21,4 +21,6 @@ func setupRouter(r *gin.Engine, db *gorm.DB, err error) {
 	r.GET("/aot", func(ctx *gin.Context) { handler.GetAllHandler(ctx, db) })
 
 	r.PUT("/aot/:id", func(ctx *gin.Context) { handler.PutHandler(ctx, db) })
+
+	r.DELETE("/aot/:id", func(ctx *gin.Context) { handler.DelHandler(ctx, db) })
 }
