@@ -23,4 +23,17 @@ func main() {
 
 	// writes data to the connection
 	_, err = connection.Write([]byte("Hey you, don't tell me there's no hope at all"))
+	if err != nil {
+		fmt.Println("Error writing data!")
+	}
+
+	// --- SECOND STAGE
+
+	// read message from server
+	buffer := make([]byte, 1024)
+	mLen, err := connection.Read(buffer)
+	if err != nil {
+		fmt.Println("Error reading data!")
+	}
+	fmt.Printf("Received: %s\n", string(buffer[:mLen]))
 }

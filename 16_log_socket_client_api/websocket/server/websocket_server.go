@@ -49,4 +49,11 @@ func processClient(connection net.Conn) {
 
 	// converts the byte in buffer "up to" `mLen`
 	fmt.Printf("Received: %s\n", string(buffer[:mLen]))
+
+	// --- SECOND STAGE
+
+	_, err = connection.Write([]byte("Together we stand, divided we fall"))
+	if err != nil {
+		fmt.Println("Error writing data!")
+	}
 }
