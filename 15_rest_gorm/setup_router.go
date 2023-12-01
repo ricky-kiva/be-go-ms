@@ -16,8 +16,6 @@ func setupRouter(r *gin.Engine, db *gorm.DB, err error) {
 
 	migrateDB(db)
 
-	r.POST("/aot", func(ctx *gin.Context) {
-		handler.PostHandler(ctx, db)
-	})
-
+	r.POST("/aot", func(ctx *gin.Context) { handler.PostHandler(ctx, db) })
+	r.GET("/aot", func(ctx *gin.Context) { handler.GetAllHandler(ctx, db) })
 }
