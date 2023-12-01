@@ -30,33 +30,31 @@ func LoginHandler(c *gin.Context) {
 			"status":  "error",
 			"message": "Invalid user",
 		})
-	} else {
-		if user.Password != PASSWORD {
-			c.JSON(http.StatusUnauthorized, gin.H{
-				"status":  "error",
-				"message": "Invalid password",
-			})
-		}
-	}
-
-	claim := jwt.StandardClaims{
-		ExpiresAt: time.Now().Add(time.Minute * 1).Unix(),
-		Issuer:    "test",
-		IssuedAt:  time.Now().Unix(),
-	}
-
-	sign := jwt.NewWithClaims(jwt.SigningMethodHS256, claim)
-	token, err := sign.SignedString([]byte(SECRET))
-	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{
+	} else if user.Password != PASSWORD {
+		c.JSON(http.StatusUnauthorized, gin.H{
 			"status":  "error",
-			"message": err.Error(),
+			"message": "Invalid password",
 		})
-		c.Abort()
-	}
+	} else {
+		claim := jwt.StandardClaims{
+			ExpiresAt: time.Now().Add(time.Minute * 1).Unix(),
+			Issuer:    "test",
+			IssuedAt:  time.Now().Unix(),
+		}
 
-	c.JSON(http.StatusOK, gin.H{
-		"status": "success",
-		"token":  token,
-	})
+		sign := jwt.NewWithClaims(jwt.SigningMethodHS256, claim)
+		token, err := sign.SignedString([]byte(SECRET))
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{
+				"status":  "error",
+				"message": err.Error(),
+			})
+			c.Abort()
+		}
+
+		c.JSON(http.StatusOK, gin.H{
+			"status": "success",
+			"token":  token,
+		})
+	}
 }
