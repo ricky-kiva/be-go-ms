@@ -19,6 +19,7 @@ func setupRouter(r *gin.Engine, db *gorm.DB, err error) {
 	r.POST("/aot", func(ctx *gin.Context) { handler.PostHandler(ctx, db) })
 
 	r.GET("/aot", func(ctx *gin.Context) { handler.GetAllHandler(ctx, db) })
+	r.GET("/aot/:id", func(ctx *gin.Context) { handler.GetByIdHandler(ctx, db) })
 
 	r.PUT("/aot/:id", func(ctx *gin.Context) { handler.PutHandler(ctx, db) })
 
