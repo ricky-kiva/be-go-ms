@@ -10,12 +10,7 @@ import (
 
 func PostHandler(c *gin.Context, db *gorm.DB) {
 	var newSoldier models.TitanSoldier
-	// c.Bind(&newSoldier)
-	// db.Create(&newSoldier)
-	// c.JSON(http.StatusOK, gin.H{
-	// 	"status": "success",
-	// 	"data":   newSoldier,
-	// })
+
 	if c.Bind(&newSoldier) == nil {
 		db.Create(&newSoldier)
 		c.JSON(http.StatusOK, gin.H{
