@@ -7,6 +7,7 @@ use (
 	./14_gorm
 	./15_rest_gorm
 	./16_log_socket_client_api
+	./17_authen_author
 	./6_function
 	./7_defer_panic_error
 	./8_json_assert_interface
