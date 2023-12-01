@@ -5,6 +5,7 @@ use (
 	./11_gin
 	./13_gin_rest
 	./14_gorm
+	./15_rest_gorm
 	./6_function
 	./7_defer_panic_error
 	./8_json_assert_interface
