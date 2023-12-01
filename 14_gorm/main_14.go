@@ -1,6 +1,7 @@
 package main
 
 import (
+	"14_gorm/models"
 	"fmt"
 
 	"github.com/jinzhu/gorm"
@@ -20,7 +21,18 @@ func main() {
 
 	fmt.Println("DB connection success")
 
-	migrateMethod(DB)
+	var seederCallback = func() {
+		data := models.Character{}
+
+		// fetches all records from "relevant table" inside the `DB`
+		// return `true` if there is no record inside the "relevant table"
+		if DB.Find(&data).RecordNotFound() {
+			fmt.Println("Executing Seeder method")
+			seederMethod(DB)
+		}
+	}
+
+	migrateMethod(DB, seederCallback)
 
 	defer DB.Close()
 }

@@ -6,6 +6,7 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
-func migrateMethod(DB *gorm.DB) {
+func migrateMethod(DB *gorm.DB, callback func()) {
 	DB.AutoMigrate(models.Character{})
+	callback()
 }
