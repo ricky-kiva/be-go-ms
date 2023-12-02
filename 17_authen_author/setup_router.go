@@ -3,6 +3,7 @@ package main
 import (
 	"15_rest_gorm/handler"
 	"17_authen_author/auth"
+	"17_authen_author/middleware"
 	"fmt"
 
 	"github.com/gin-gonic/gin"
@@ -20,8 +21,9 @@ func setupRouter(r *gin.Engine, db *gorm.DB, err error) {
 	r.POST("/login", auth.LoginHandler) // can also pass like this, if only need `*gin.Context`
 	r.POST("/aot", func(ctx *gin.Context) { handler.PostHandler(ctx, db) })
 
-	r.GET("/aot", func(ctx *gin.Context) { handler.GetAllHandler(ctx, db) })
-	r.GET("/aot/:id", func(ctx *gin.Context) { handler.GetByIdHandler(ctx, db) })
+	// require to login to access these
+	r.GET("/aot", middleware.AuthValidation, func(ctx *gin.Context) { handler.GetAllHandler(ctx, db) })
+	r.GET("/aot/:id", middleware.AuthValidation, func(ctx *gin.Context) { handler.GetByIdHandler(ctx, db) })
 
 	r.PUT("/aot/:id", func(ctx *gin.Context) { handler.PutHandler(ctx, db) })
 
