@@ -22,6 +22,7 @@ func PutHandler(c *gin.Context, db *gorm.DB) {
 		return
 	}
 
+	// `Bind` automatically bind the 'request body' sent by 'request' to `newSoldier` struct
 	if c.Bind(&soldier) == nil {
 		// could also use `db.Model(&soldier).Where("id=?", soldierId).Update(soldier)` to specify target by `field`
 		db.Model(&soldier).Update(soldier)

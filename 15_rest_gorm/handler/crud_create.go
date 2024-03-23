@@ -11,6 +11,7 @@ import (
 func PostHandler(c *gin.Context, db *gorm.DB) {
 	var newSoldier models.TitanSoldier
 
+	// `Bind` automatically bind the 'request body' sent by 'request' to `newSoldier` struct
 	if c.Bind(&newSoldier) == nil {
 		db.Create(&newSoldier)
 		c.JSON(http.StatusOK, gin.H{
