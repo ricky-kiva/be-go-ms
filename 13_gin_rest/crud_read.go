@@ -9,14 +9,15 @@ import (
 )
 
 func rowsToStruct(rows *sql.Rows, dest interface{}) error {
-	// get reflection of `dest`
+	// get reflection of `dest` ([]student) (a slice)
+	// `ValueOf()` creates reflection object of `dest`, so it could further be modified after being called `.Elem()`
 	// `Elem()` used when `ValueOf()` is a pointer/interface
 	// - if after `ValueOf()`, it returns the "value" of the pointer/interface (dereferencing)
-	destValue := reflect.ValueOf(dest).Elem()
+	destValue := reflect.ValueOf(dest).Elem() // simply, converts the pointer `dest` (a slice) into a reflection value representing the slice itself, enabling direct modification of its elements
 
 	// `Elem()` after `Type()` return the element's type of a `reference type`
 	// create `slice` type `interface{}` with number of fields of `destValue` (which is 5)
-	args := make([]interface{}, destValue.Type().Elem().NumField())
+	args := make([]interface{}, destValue.Type().Elem().NumField()) // simply, ceates a slice of interfaces to hold pointers to struct fields.
 
 	for rows.Next() {
 		// make new pointer of empty struct
@@ -30,6 +31,10 @@ func rowsToStruct(rows *sql.Rows, dest interface{}) error {
 			args[i] = rowValue.Field(i).Addr().Interface()
 		}
 
+		// from `rowPointer` to 'here', it hasn't passed the value from the database
+		// only creating placeholder for the values that will be passed
+
+		// the passing values from the database starts here
 		// `rows.Scan()` reads `row` that is pointed by `rows.Next()`
 		// - then pass the value to `args`
 		if err := rows.Scan(args...); err != nil {
