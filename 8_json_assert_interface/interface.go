@@ -14,10 +14,11 @@ type circle struct {
 	diameter float64
 }
 
-func (c circle) radius() float64 {
-	return c.diameter / 2
+type square struct {
+	side float64
 }
 
+// `(c circle)` means this function associated to `circle` struct
 func (c circle) area() float64 {
 	return math.Pi * math.Pow(c.radius(), 2)
 }
@@ -26,16 +27,16 @@ func (c circle) circumference() float64 {
 	return math.Pi * c.diameter
 }
 
-type square struct {
-	side float64
-}
-
 func (sq square) area() float64 {
 	return math.Pow(sq.side, 2)
 }
 
 func (sq square) circumference() float64 {
 	return sq.side * 4
+}
+
+func (c circle) radius() float64 {
+	return c.diameter / 2
 }
 
 func calculateShapes() {
