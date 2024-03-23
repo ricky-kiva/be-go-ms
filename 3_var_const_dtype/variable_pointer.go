@@ -9,4 +9,6 @@ func variablePointerMethod() {
 
 	fmt.Printf("Value of pointer4 now: %d\n", pointer4)
 	fmt.Printf("Value of pointer8 now: %d\n", *pointer8)
+
+	fmt.Printf("Value of pointer4 now: %d\n", pointer4)
 }
