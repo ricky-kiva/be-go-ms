@@ -20,7 +20,7 @@ func main() {
 		fmt.Println(err.Error())
 	}
 
-	// comment these to simulate non-`recover`-y mode
+	// comment one of these to simulate non-`recover`-y mode
 	panicMethod()
 	exitMethod()
 }
