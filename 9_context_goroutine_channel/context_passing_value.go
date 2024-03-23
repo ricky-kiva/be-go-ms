@@ -21,5 +21,5 @@ func contextPassingMethod() {
 	fmt.Println(ctx5.Value("key1"))
 
 	fmt.Println(ctx3.Value("key2"))
-	fmt.Println(ctx4.Value("key1"))
+	fmt.Println(ctx4.Value("key4"))
 }
