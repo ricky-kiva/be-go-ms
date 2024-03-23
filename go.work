@@ -10,6 +10,7 @@ use (
 	./17_authen_author
 	./3_var_const_dtype
 	./4_operator_condition_loop
+	./5_array_struck
 	./6_function
 	./7_defer_panic_error
 	./8_json_assert_interface
