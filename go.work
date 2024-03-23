@@ -9,6 +9,7 @@ use (
 	./16_log_socket_client_api
 	./17_authen_author
 	./3_var_const_dtype
+	./4_operator_condition_loop
 	./6_function
 	./7_defer_panic_error
 	./8_json_assert_interface
